@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Concierge Studio</title>
+    <style>
+        :root { --bg: #090d16; --panel: #111827; --accent: #6366f1; --text: #f3f4f6; --text-dim: #9ca3af; --border: #1f2937; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        
+        /* Navigation Bar */
+        nav { display: flex; background: var(--panel); border-bottom: 1px solid var(--border); overflow-x: auto; padding: 8px; gap: 6px; flex-shrink: 0; }
+        nav button { background: transparent; border: none; color: var(--text-dim); padding: 8px 12px; border-radius: 8px; font-size: 13px; cursor: pointer; white-space: nowrap; transition: 0.2s; }
+        nav button.active { background: var(--accent); color: white; font-weight: bold; }
+
+        /* Content Area */
+        .screen { display: none; flex: 1; flex-direction: column; overflow-y: auto; padding: 16px; }
+        .screen.active { display: flex; }
+
+        /* Home / Avatar Screen */
+        .hero-card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 16px; }
+        .avatar-container { width: 90px; height: 90px; margin: 0 auto 12px; background: linear-gradient(135deg, #6366f1, #a855f7); border-radius: 50%; display: flex; align-items: center; justifyContent: center; font-size: 36px; box-shadow: 0 0 20px rgba(99,102,241,0.4); }
+        
+        /* Chat Box */
+        .chat-box { flex: 1; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; max-height: calc(100vh - 280px); }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+        .msg { padding: 10px 14px; border-radius: 10px; font-size: 14px; max-width: 85%; line-height: 1.4; }
+        .msg.user { background: var(--accent); color: white; align-self: flex-end; }
+        .msg.ai { background: var(--border); color: var(--text); align-self: flex-start; }
+        .chat-input { display: flex; padding: 10px; background: #0b0f19; border-top: 1px solid var(--border); gap: 8px; }
+        .chat-input input { flex: 1; background: var(--panel); border: 1px solid var(--border); padding: 10px; border-radius: 8px; color: white; font-size: 14px; outline: none; }
+        .chat-input button { background: var(--accent); color: white; border: none; padding: 0 16px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+        /* Generic Modules */
+        .module-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .module-card { background: var(--panel); border: 1px solid var(--border); padding: 16px; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.2s; }
+        .module-card:hover { border-color: var(--accent); }
+        .module-card h3 { font-size: 15px; margin-bottom: 6px; }
+        .module-card p { font-size: 12px; color: var(--text-dim); }
+
+        /* Code Injector Panel */
+        textarea.code-editor { width: 100%; height: 120px; background: #0b0f19; color: #34d399; border: 1px solid var(--border); padding: 10px; border-radius: 8px; font-family: monospace; font-size: 12px; margin-top: 10px; resize: none; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <button class="nav-btn active" onclick="switchScreen('home', this)">🤖 Avatar & Czat</button>
+        <button class="nav-btn" onclick="switchScreen('food', this)">🍕 Jedzenie</button>
+        <button class="nav-btn" onclick="switchScreen('map', this)">🗺️ Mapy & Usługi</button>
+        <button class="nav-btn" onclick="switchScreen('transport', this)">🚗 Transport</button>
+        <button class="nav-btn" onclick="switchScreen('builder', this)">⚙️ Moduły AI</button>
+    </nav>
+
+    <!-- EKRAN 1: AVATAR I CZAT -->
+    <div id="home" class="screen active">
+        <div class="hero-card">
+            <div class="avatar-container">👤</div>
+            <h2>Twój Concierge</h2>
+            <p style="color: var(--text-dim); font-size: 13px; margin-top: 4px;">Gotowy do działania w trybie lokalnym / Open Source.</p>
+        </div>
+        <div class="chat-box">
+            <div class="chat-messages" id="chatLogs">
+                <div class="msg ai">Witaj! Jestem Twoim systemem zarządzania. W czym pomóc?</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Wpisz polecenie..." onkeypress="if(event.key==='Enter')sendMsg()">
+                <button onclick="sendMsg()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EKRAN 2: JEDZENIE -->
+    <div id="food" class="screen">
+        <h2 style="margin-bottom: 12px;">Szybkie Zamówienia</h2>
+        <div class="module-grid">
+            <div class="module-card" onclick="window.open('https://pyszne.pl', '_blank')">
+                <h3>Pyszne.pl</h3>
+                <p>Zamów jedzenie z dostawą</p>
+            </div>
+            <div class="module-card" onclick="alert('Moduł lokalnych restauracji podpięty!')">
+                <h3>Lokalne Menu</h3>
+                <p>Baza ulubionych miejsc</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- EKRAN 3: MAPY I SPECJALIŚCI -->
+    <div id="map" class="screen">
+        <h2 style="margin-bottom: 12px;">Zdrowie i Usługi</h2>
+        <div class="module-grid">
+            <div class="module-card" onclick="window.open('https://google.com/maps/search/lekarz', '_blank')">
+                <h3>Lekarze</h3>
+                <p>Mapa specjalistów</p>
+            </div>
+            <div class="module-card" onclick="window.open('https://google.com/maps/search/fizjoterapeuta', '_blank')">
+                <h3>Fizjoterapeutyka</h3>
+                <p>Gabinety w okolicy</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- EKRAN 4: TRANSPORT -->
+    <div id="transport" class="screen">
+        <h2 style="margin-bottom: 12px;">Mobilność</h2>
+        <div class="module-grid">
+            <div class="module-card" onclick="window.open('https://m.uber.com', '_blank')">
+                <h3>Uber</h3>
+                <p>Zamów przejazd</p>
+            </div>
+            <div class="module-card" onclick="window.open('https://booking.com', '_blank')">
+                <h3>Booking</h3>
+                <p>Noclegi i podróże</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- EKRAN 5: MODUŁ ROZBUDOWY (BUILDER) -->
+    <div id="builder" class="screen">
+        <h2 style="margin-bottom: 8px;">Generator Funkcji</h2>
+        <p style="color: var(--text-dim); font-size: 13px; margin-bottom: 12px;">Wklej kod lub instrukcję od swojego agenta, aby rozbudować aplikację w locie.</p>
+        <textarea class="code-editor" id="dynamicCode" placeholder="// Tutaj wklej nowy kod JavaScript/HTML wygenerowany przez system..."></textarea>
+        <button onclick="injectCode()" style="background: var(--accent); color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; margin-top: 10px; cursor: pointer;">Wdróż moduł do pamięci</button>
+    </div>
+
+    <script>
+        function switchScreen(screenId, btn) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        function sendMsg() {
+            const input = document.getElementById('userInput');
+            const text = input.value.trim();
+            if(!text) return;
+
+            const logs = document.getElementById('chatLogs');
+            logs.innerHTML += `<div class="msg user">${text}</div>`;
+            input.value = '';
+            logs.scrollTop = logs.scrollHeight;
+
+            // Symulacja odpowiedzi wolnego/lokalnego agenta bez ograniczeń
+            setTimeout(() => {
+                logs.innerHTML += `<div class="msg ai">Przyjęto polecenie: "${text}". Wykonuję lokalną procedurę bez filtrów systemowych.</div>`;
+                logs.scrollTop = logs.scrollHeight;
+            }, 600);
+        }
+
+        function injectCode() {
+            const code = document.getElementById('dynamicCode').value;
+            try {
+                const script = document.createElement('script');
+                script.innerHTML = code;
+                document.body.appendChild(script);
+                alert('Nowy moduł został pomyślnie wpięty do systemu!');
+            } catch(e) {
+                alert('Błąd wstrzykiwania kodu: ' + e);
+            }
+        }
+    </script>
+</body>
+</html>
