@@ -1,0 +1,34 @@
+name: Import Beboki artwork
+
+on:
+  push:
+    paths:
+      - 'oaza/beboki/assets-import/*.b64'
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode artwork
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p oaza/beboki/assets
+          for f in oaza/beboki/assets-import/*.webp.b64; do
+            [ -f "$f" ] || continue
+            out="oaza/beboki/assets/$(basename "$f" .b64)"
+            tr -d '\r\n ' < "$f" | base64 --decode > "$out"
+            file "$out"
+          done
+      - name: Commit decoded artwork
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add oaza/beboki/assets
+          git diff --cached --quiet || git commit -m 'Add Beboki prologue artwork'
+          git push
