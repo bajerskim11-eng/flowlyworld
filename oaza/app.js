@@ -1,5 +1,16 @@
 import { projects } from './data/projects.js';
 
+// Realny hero z grafiki przesłanej do projektu — żadnych pustych placeholderów.
+const assetBase = '/oaza/assets/images/';
+const heroImage = `${assetBase}slaska-oaza-skrzydla-katowice.jpg`;
+const hero = document.querySelector('#hero');
+if (hero) {
+  hero.insertAdjacentHTML('afterbegin', `<div class="hero-real-image" aria-hidden="true"><img src="${heroImage}" alt="Śląska Oaza — skrzydła nad Katowicami"></div>`);
+  const style = document.createElement('style');
+  style.textContent = `.hero-real-image{position:absolute;inset:0;z-index:1;overflow:hidden}.hero-real-image img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transform:scale(1.02);filter:saturate(.96) contrast(1.02)}.hero-real-image:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(238,230,213,.88) 0%,rgba(238,230,213,.48) 25%,rgba(8,10,9,.04) 55%,rgba(8,10,9,.24) 100%),linear-gradient(180deg,rgba(255,255,255,.06),rgba(8,10,9,.72) 100%)}.hero-content{z-index:8}.hero-wings,.spodek-mark{opacity:.08}.hero-floating-card{z-index:9}.oaza-visual-strip{width:min(1280px,calc(100% - 40px));margin:0 auto 0;display:grid;grid-template-columns:1.7fr 1fr;gap:12px}.oaza-visual-strip figure{margin:0;min-height:300px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#101410;position:relative}.oaza-visual-strip img{width:100%;height:100%;min-height:300px;object-fit:cover;display:block}.oaza-visual-strip figcaption{position:absolute;left:18px;bottom:16px;padding:9px 12px;border-radius:999px;background:rgba(8,10,9,.72);backdrop-filter:blur(10px);font-size:10px;letter-spacing:.08em;color:#eee6d5}.oaza-visual-strip .crop img{object-position:72% center}@media(max-width:800px){.oaza-visual-strip{grid-template-columns:1fr}.hero-real-image:after{background:linear-gradient(180deg,rgba(8,10,9,.1),rgba(8,10,9,.82) 78%)}}`;
+  document.head.appendChild(style);
+}
+
 const grid = document.querySelector('#project-grid');
 if (grid) {
   grid.innerHTML = projects.map(project => `
@@ -15,8 +26,17 @@ if (grid) {
   `).join('');
 }
 
+// Dodatkowa galeria wizji pod sekcją OAZY.
+const intro = document.querySelector('#oaza');
+if (intro && !document.querySelector('#oaza-visuals')) {
+  const visual = document.createElement('div');
+  visual.id = 'oaza-visuals';
+  visual.className = 'oaza-visual-strip reveal';
+  visual.innerHTML = `<figure><img src="${heroImage}" alt="Wizja Śląskiej OAZY nad Katowicami"><figcaption>WIZJA OAZY · KATOWICE</figcaption></figure><figure class="crop"><img src="${heroImage}" alt="Skrzydła i Spodek — motyw OAZY"><figcaption>ŚLĄSK JEST TWÓJ</figcaption></figure>`;
+  intro.appendChild(visual);
+}
+
 // Subtelny parallax hero — reaguje na ruch myszy, ale nie przeszkadza w nawigacji.
-const hero = document.querySelector('#hero');
 if (hero && window.matchMedia('(pointer:fine)').matches) {
   hero.addEventListener('pointermove', (event) => {
     const x = (event.clientX / window.innerWidth - .5);
@@ -30,7 +50,6 @@ if (hero && window.matchMedia('(pointer:fine)').matches) {
   });
 }
 
-// Interaktywna opowieść OAZY.
 const principleOutput = document.querySelector('#principle-output');
 const principleCopy = {
   miejsce: 'Miejsce → ludzie → działanie. OAZA zaczyna się od pierwszego SPOTU.',
@@ -45,7 +64,6 @@ document.querySelectorAll('.principle').forEach(button => {
   });
 });
 
-// Pojawianie się sekcji podczas przewijania.
 const revealItems = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
@@ -54,7 +72,6 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach(item => observer.observe(item));
 } else revealItems.forEach(item => item.classList.add('is-visible'));
 
-// Delikatny tilt kart.
 if (window.matchMedia('(pointer:fine)').matches) {
   document.querySelectorAll('[data-tilt]').forEach(card => {
     card.addEventListener('pointermove', event => {
@@ -71,7 +88,6 @@ if (window.matchMedia('(pointer:fine)').matches) {
   });
 }
 
-// Pasek postępu przewijania.
 const progress = document.querySelector('#scroll-progress');
 window.addEventListener('scroll', () => {
   if (!progress) return;
