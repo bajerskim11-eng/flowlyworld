@@ -3,87 +3,114 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Śląska Oaza — Katowice</title>
-  <meta name="description" content="Śląska Oaza — projekty, miejsca i ludzie budujący prawdziwą Oazę w Katowicach." />
+  <title>Śląska Oaza — Budujemy Śląsk. Razem.</title>
+  <meta name="description" content="Śląska Oaza — miejsca, ludzie i projekty, które razem zmieniają Katowice." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/oaza/styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/oaza/">ŚLĄSKA OAZA</a>
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Śląska Oaza — początek">ŚLĄSKA<br><span>OAZA</span></a>
     <nav>
-      <a href="#projekty">Projekty</a>
-      <a href="#mapa">Mapa</a>
-      <a href="#dolacz">Dołącz</a>
+      <a href="#oaza">OAZA</a>
+      <a href="#projekty">PROJEKTY</a>
+      <a href="#mapa">MAPA</a>
+      <a href="#partnerzy">PARTNERZY</a>
+      <a href="#dolacz">DOŁĄCZ</a>
     </nav>
-    <a class="header-cta" href="/oaza/stadion/">PIERWSZY SPOT ↗</a>
+    <a class="header-cta" href="/oaza/stadion/">THE ŚLĄSK IS YOURS ↗</a>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="hero-backdrop"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
       <div class="hero-wings" aria-hidden="true">
         <div class="wing wing-left"></div>
         <div class="wing wing-right"></div>
       </div>
-      <div class="spodek-mark" aria-hidden="true">
-        <div class="spodek-dish"></div>
-        <div class="spodek-dome"></div>
+      <div class="spodek-mark" aria-label="Stylizowany Spodek">
+        <div class="spodek-dish"></div><div class="spodek-dome"></div>
         <div class="spodek-leg leg-a"></div><div class="spodek-leg leg-b"></div>
+        <div class="spodek-text">ŚLĄSK JEST TWÓJ</div>
       </div>
       <div class="hero-content">
         <p class="eyebrow">KATOWICE · ŚLĄSK · 2026</p>
-        <h1>ŚLĄSKA<br><em>OAZA</em></h1>
-        <p class="hero-lead">The world is yours.<br><span>Nie patrzymy na miasto z boku. Budujemy jego następny rozdział razem.</span></p>
+        <h1>BUDUJEMY<br><em>ŚLĄSK.</em><br>RAZEM.</h1>
+        <p class="hero-lead">The world is yours.<br><span>Miejsce. Ludzie. Pasja. Przyszłość.</span></p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#projekty">ZOBACZ, CO BUDUJEMY</a>
-          <a class="button button-ghost" href="/oaza/stadion/">STADION STAREJ GWARDII →</a>
+          <a class="button button-primary" href="#projekty">ZOBACZ, CO BUDUJEMY <b>↓</b></a>
+          <a class="button button-ghost" href="/oaza/stadion/">PIERWSZY SPOT →</a>
         </div>
       </div>
-      <div class="hero-caption">WORLD IS YOURS / STARTS LOCAL</div>
+      <div class="hero-floating-card" data-tilt>
+        <span>PROJEKT #001</span><strong>FESTIWAL ŚLĄSKI</strong><small>Stadion Starej Gwardii</small>
+        <a href="/oaza/stadion/">WEJDŹ DO PROJEKTU ↗</a>
+      </div>
+      <div class="hero-caption">PRZESUŃ · ODKRYWAJ · DOŁĄCZ</div>
     </section>
 
-    <section class="intro section-shell">
+    <section id="oaza" class="intro section-shell reveal">
       <div class="section-label">01 / OAZA</div>
       <div class="intro-grid">
-        <h2>Jeden świat.<br><span>Wiele miejsc.</span></h2>
+        <h2>Nie czekamy,<br><span>aż ktoś to zrobi.</span></h2>
         <div>
-          <p class="large-copy">OAZA to projekt, który schodzi z ekranu do miasta. Każdy element ma kiedyś stać się prawdziwym miejscem, wydarzeniem albo inicjatywą.</p>
-          <p class="muted-copy">Dlatego każdy projekt ma własną przestrzeń: zdjęcia, dokumentację, plan, potrzeby, partnerów, osoby odpowiedzialne i kolejne etapy. Ta strona jest mapą budowy, nie katalogiem pomysłów.</p>
+          <p class="large-copy">Śląska Oaza łączy ludzi, firmy, artystów, uczelnie i lokalne pomysły, żeby tworzyć prawdziwe miejsca.</p>
+          <p class="muted-copy">Każdy projekt ma własną kartę: wizję, lokalizację, plan, zadania, otwarte sloty i partnerów. Najpierw mały konkretny krok. Potem następny.</p>
         </div>
       </div>
+      <div class="principles">
+        <button class="principle active" data-principle="miejsce"><span>01</span><b>MIEJSCE</b><small>Najpierw znajdujemy przestrzeń.</small></button>
+        <button class="principle" data-principle="ludzie"><span>02</span><b>LUDZIE</b><small>Potem zapraszamy tych, którzy chcą działać.</small></button>
+        <button class="principle" data-principle="razem"><span>03</span><b>RAZEM</b><small>Każdy wnosi coś konkretnego.</small></button>
+      </div>
+      <div class="principle-output" id="principle-output">Miejsce → ludzie → działanie. OAZA zaczyna się od pierwszego SPOTU.</div>
     </section>
 
-    <section id="projekty" class="projects section-shell">
+    <section id="projekty" class="projects section-shell reveal">
       <div class="section-topline">
-        <div><div class="section-label">02 / PROJEKTY</div><h2>Co budujemy.</h2></div>
-        <p class="muted-copy">Kliknij projekt i wejdź głębiej. Kolejne podstrony będą miały ten sam system: materiały → wizja → plan → potrzeby → partnerzy.</p>
+        <div><div class="section-label">02 / PROJEKTY</div><h2>Budujemy<br><span>konkretnie.</span></h2></div>
+        <p class="muted-copy">Nie katalog pomysłów. Żywe projekty, które można otworzyć, wesprzeć, zrealizować albo do nich dołączyć.</p>
       </div>
       <div id="project-grid" class="project-grid"></div>
     </section>
 
-    <section id="mapa" class="map-section">
+    <section id="mapa" class="map-section reveal">
       <div class="section-shell">
         <div class="section-label">03 / MAPA</div>
-        <div class="map-heading"><h2>Najpierw<br><span>jedno miejsce.</span></h2><p>Stadion Starej Gwardii jest pierwszym konkretnym SPOTEM. Mapa będzie rosła razem z rzeczywistymi projektami.</p></div>
+        <div class="map-heading"><h2>Jedno miejsce.<br><span>Potem kolejne.</span></h2><p>Mapa OAZY rośnie wraz z rzeczywistymi projektami. Każdy pin oznacza miejsce, za którym stoją ludzie i konkretne zadania.</p></div>
         <a class="map-card" href="/oaza/stadion/">
-          <div class="map-noise"></div><div class="map-pin">01</div>
-          <div class="map-card-copy"><span>SPOT #01 · KATOWICE</span><strong>Stadion Starej Gwardii</strong><small>OTWÓRZ KARTĘ PROJEKTU →</small></div>
+          <div class="map-orbit orbit-a"></div><div class="map-orbit orbit-b"></div><div class="map-pin">01</div>
+          <div class="map-card-copy"><span>SPOT #01 · KATOWICE</span><strong>Stadion Starej Gwardii</strong><small>FESTIWAL ŚLĄSKI · BEBOKI AR · HYPEAT ↗</small></div>
         </a>
       </div>
     </section>
 
-    <section id="dolacz" class="join-section">
+    <section id="partnerzy" class="partners section-shell reveal">
+      <div class="section-label">04 / PARTNERZY</div>
+      <div class="partner-heading"><h2>Nie musisz dawać<br><span>milionów.</span></h2><p>Możesz dać moduł, pawilon, leżaki, scenę, jedzenie, rośliny, technologię albo czas. Dlatego każdy projekt ma otwarte sloty.</p></div>
+      <div class="slot-grid">
+        <div class="slot"><span>🏠</span><b>DOM MODUŁOWY</b><small>1 szt. pokazowa</small><em>OTWARTY</em></div>
+        <div class="slot"><span>▣</span><b>PAWILONY</b><small>Galeria lokalnych artystów</small><em>OTWARTY</em></div>
+        <div class="slot"><span>♫</span><b>SCENA + DŹWIĘK</b><small>Partner techniczny</small><em>OTWARTY</em></div>
+        <div class="slot"><span>☕</span><b>GASTRONOMIA</b><small>Food trucki + kawa</small><em>OTWARTY</em></div>
+        <div class="slot"><span>✦</span><b>AR + BEBOKI</b><small>Technologia gry terenowej</small><em>OTWARTY</em></div>
+        <div class="slot"><span>♥</span><b>SPONSOR GŁÓWNY</b><small>Partner całego projektu</small><em>OTWARTY</em></div>
+      </div>
+    </section>
+
+    <section id="dolacz" class="join-section reveal">
       <div class="section-shell join-grid">
-        <div><div class="section-label dark-label">04 / DOŁĄCZ</div><h2>Nie ma jeszcze<br>Twojego nazwiska?</h2></div>
-        <div><p>To celowe. Zostawiamy miejsca dla ludzi, lokalnych firm, artystów, wykonawców, szkół, organizacji i partnerów, którzy chcą wejść w konkretną część OAZY.</p><a class="button button-dark" href="/oaza/partnerzy/">ZOBACZ OTWARTE MIEJSCA →</a></div>
+        <div><div class="section-label dark-label">05 / DOŁĄCZ</div><h2>Śląsk nie jest<br>gotowym produktem.</h2></div>
+        <div><p>To miejsce, które możemy razem ulepszać. Wybierz projekt, zadanie albo pusty slot i dołącz jako osoba, firma, artysta, uczelnia lub organizacja.</p><a class="button button-dark" href="/oaza/partnerzy/">ZOBACZ OTWARTE MIEJSCA →</a></div>
       </div>
     </section>
   </main>
-
-  <footer class="site-footer"><span>ŚLĄSKA OAZA</span><span>KATOWICE · BUDUJEMY OD LOKALNEGO SPOTU</span></footer>
+  <footer class="site-footer"><span>ŚLĄSKA OAZA</span><span>KATOWICE · BUDUJEMY OD LOKALNEGO SPOTU</span><a href="#top">↑ DO GÓRY</a></footer>
   <script type="module" src="/oaza/app.js"></script>
 </body>
 </html>
