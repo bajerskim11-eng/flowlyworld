@@ -70,6 +70,26 @@ game.innerHTML = `
 `;
 if (program) program.parentNode.insertBefore(game, program);
 
+// HERO WIZUALNY: Beboki AR podczas Festiwalu Śląskiego.
+// Obraz jest zapisany w repo jako base64 asset, dzięki czemu nie zależy od zewnętrznego hostingu.
+(async()=>{
+  try {
+    const r=await fetch('/oaza/assets/images/stadion/beboki-ar-festiwal.webp.b64');
+    if(!r.ok) throw new Error('asset');
+    const b64=(await r.text()).trim();
+    const visual=document.createElement('section');
+    visual.className='section beboki-ar-visual';
+    visual.innerHTML=`
+      <div class="label">04A / BEBOKI AR W TERENIE</div>
+      <div class="vision-head"><h2>Śląskie historie<br><em>wchodzą do gry.</em></h2><p>Tak chcemy połączyć prawdziwy teren z Bebokami AR: uczestnicy spacerują po festiwalu, odnajdują postacie i punkty, poznają historię miejsca oraz wykonują zadania.</p></div>
+      <figure style="margin:0;overflow:hidden;border-radius:18px;background:#111;box-shadow:0 18px 50px rgba(0,0,0,.28)">
+        <img src="data:image/webp;base64,${b64}" alt="Wizualizacja gry Beboki AR podczas Festiwalu Śląskiego na Stadionie Starej Gwardii" loading="lazy" style="display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover">
+        <figcaption style="padding:14px 18px;font-size:.78rem;letter-spacing:.08em">WIZUALIZACJA KONCEPCJI · BEBOKI AR × FESTIWAL ŚLĄSKI</figcaption>
+      </figure>`;
+    if(program) program.parentNode.insertBefore(visual, program);
+  } catch(e) { console.warn('Nie udało się załadować wizualizacji Beboki AR',e); }
+})();
+
 document.querySelector('#zones').innerHTML = zones.map(z=>`<article class="zone"><span>${z[0]} / ${z[1]}</span><h3>${z[2]}</h3><p>${z[3]}</p></article>`).join('');
 document.querySelector('#timeline').innerHTML = phases.map(p=>`<article class="phase"><b>${p[0]}</b><div><strong>${p[1]}</strong><p>${p[2]}</p></div></article>`).join('');
 document.querySelector('#slots').innerHTML = slots.map(s=>`<article class="slot"><span>OTWARTY SLOT</span><h3>${s[0]}</h3><p>${s[1]}</p><a href="#partnerzy">DOŁĄCZ →</a></article>`).join('');
