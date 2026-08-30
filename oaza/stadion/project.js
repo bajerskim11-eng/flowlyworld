@@ -28,13 +28,51 @@ const slots = [
  ['FILMOWCY','Lokalne i niszowe produkcje na wieczorne pokazy.'],
  ['PARTNER SPORTOWY','Sprzęt i aktywności przygotowywane razem ze studentami AWF.'],
  ['PARTNER ZIELENI','Rośliny, donice, ziemia i proste elementy zielonej przestrzeni.'],
+ ['PARTNER AR','Technologia i wsparcie pilotażu terenowej gry Beboki AR.'],
+ ['PARTNER HYPEAT','Integracja lokalnej gastronomii, odkrywania miejsc i programu festiwalu z Hypeat.'],
  ['SPONSOR GŁÓWNY','Finansowe wsparcie uruchomienia Festiwalu Śląskiego.'],
  ['WOLONTARIUSZE','Ludzie, którzy chcą pomóc przed wydarzeniem, w trakcie i przy demontażu.']
 ];
 
+const story = document.createElement('section');
+story.className = 'section story-section';
+story.innerHTML = `
+  <div class="label">03 / HISTORIA · BEBOKI · NOWA WARSTWA MIASTA</div>
+  <div class="two-col">
+    <div>
+      <p class="story-kicker">MIEJSCE MA SWOJĄ HISTORIĘ</p>
+      <h2>Nie chowamy<br>przeszłości.<br><em>Opowiadamy ją dalej.</em></h2>
+    </div>
+    <div>
+      <p class="lead">Stadion Starej Gwardii nie jest pustą działką. To miejsce z historią sportu, ludzi i Katowic.</p>
+      <p class="muted">Podczas festiwalu chcemy stworzyć prostą ścieżkę opowieści: archiwalne zdjęcia, wspomnienia mieszkańców, historię stadionu i dzielnicy oraz współczesne prace lokalnych twórców. Materiały historyczne będziemy zbierać i weryfikować wspólnie z lokalnymi instytucjami, historykami, studentami i mieszkańcami.</p>
+    </div>
+  </div>
+  <div class="story-cards">
+    <article><span>HISTORIA STADIONU</span><h3>Co było tutaj wcześniej?</h3><p>Archiwalia, fotografie, wspomnienia i opowieści o sporcie. Zamiast suchej tablicy — żywa historia miejsca.</p></article>
+    <article><span>BEBOKI</span><h3>Przewodnicy po Śląsku</h3><p>Beboki prowadzą uczestników przez kolejne punkty festiwalu i pomagają odkrywać historie związane z miejscem.</p></article>
+    <article><span>LOKALNI TWÓRCY</span><h3>Śląsk widziany dzisiaj</h3><p>Malarstwo, fotografia, film i muzyka pokazują, jak region wygląda oczami ludzi, którzy żyją tutaj teraz.</p></article>
+  </div>
+`;
+const conceptGallery = document.querySelector('.concept-gallery');
+const program = document.querySelector('.festival-program');
+if (conceptGallery && program) program.parentNode.insertBefore(story, program);
+
+const game = document.createElement('section');
+game.className = 'section game-section dark-section';
+game.innerHTML = `
+  <div class="label">04 / BEBOKI AR × HYPEAT</div>
+  <div class="two-col">
+    <div><p class="story-kicker">FESTIWAL MA DRUGĄ WARSTWĘ</p><h2>Spacerujesz.<br>Odkrywasz.<br><em>Grasz.</em></h2></div>
+    <div><p class="lead">Na terenie uruchamiamy pilotaż gry Beboki AR, a Hypeat łączymy z prawdziwymi punktami jedzenia i aktywności.</p><p class="muted">Uczestnik może odnajdywać Beboki, poznawać historię miejsca, wykonywać proste zadania i odkrywać lokalnych partnerów. To ma prowadzić ludzi po realnym terenie, a nie zamykać ich w telefonie.</p></div>
+  </div>
+  <div class="game-flow"><div><b>01</b><strong>WEJDŹ</strong><p>Odbierz mapę / uruchom grę.</p></div><div><b>02</b><strong>ODKRYJ</strong><p>Znajdź punkty i Beboki.</p></div><div><b>03</b><strong>POZNAJ</strong><p>Historia, artyści, sport i jedzenie.</p></div><div><b>04</b><strong>WSPIERAJ</strong><p>Odwiedź lokalnych partnerów Hypeat.</p></div></div>
+`;
+if (program) program.parentNode.insertBefore(game, program);
+
 document.querySelector('#zones').innerHTML = zones.map(z=>`<article class="zone"><span>${z[0]} / ${z[1]}</span><h3>${z[2]}</h3><p>${z[3]}</p></article>`).join('');
 document.querySelector('#timeline').innerHTML = phases.map(p=>`<article class="phase"><b>${p[0]}</b><div><strong>${p[1]}</strong><p>${p[2]}</p></div></article>`).join('');
-document.querySelector('#slots').innerHTML = slots.map(s=>`<article class="slot"><span>OTWARTY SLOT</span><h3>${s[0]}</h3><p>${s[1]}</p><a href="/oaza/">DOŁĄCZ →</a></article>`).join('');
+document.querySelector('#slots').innerHTML = slots.map(s=>`<article class="slot"><span>OTWARTY SLOT</span><h3>${s[0]}</h3><p>${s[1]}</p><a href="#partnerzy">DOŁĄCZ →</a></article>`).join('');
 
 document.querySelectorAll('.image-slot').forEach(slot=>{
   const src=slot.dataset.image;
