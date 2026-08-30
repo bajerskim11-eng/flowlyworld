@@ -1,0 +1,1 @@
+The five exact prologue images supplied in the conversation are staged locally. Binary upload via the available GitHub connector requires base64 blob content; this note intentionally prevents placeholder images from being presented as the supplied artwork.
