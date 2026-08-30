@@ -1,9 +1,9 @@
 export const projects = [
-  {id:'stadion',number:'01',title:'Stadion Starej Gwardii',description:'Pierwszy lokalny SPOT OAZY w Katowicach — miejsce, które chcemy zaplanować i zbudować razem.',href:'/oaza/stadion/',image:''},
-  {id:'hypeat',number:'02',title:'Hypeat',description:'Ludzie, lokalna gastronomia, kultura, muzyka i obieg wartości. HOT16 Śląsk, wydarzenia i sieć lokalnych scen.',href:'/oaza/hypeat/',image:''},
+  {id:'stadion',number:'01',title:'Stadion Starej Gwardii',description:'Pierwszy lokalny SPOT OAZY w Katowicach — Festiwal Śląski, historia miejsca, Beboki AR i Hypeat.',href:'/oaza/stadion/',image:'/oaza/assets/images/stadion/festiwal-strefy.jpg'},
+  {id:'hypeat',number:'02',title:'Hypeat',description:'Ludzie, lokalna gastronomia, kultura, muzyka i obieg wartości. HOT16 Śląsk, wydarzenia i sieć lokalnych scen.',href:'/oaza/hypeat/',image:'/oaza/assets/images/stadion/wieczorny-festiwal.jpg'},
   {id:'farma',number:'03',title:'Farma',description:'Żywność, szklarnie, boxy i automatyzacja.',href:'#',image:''},
   {id:'azyl',number:'04',title:'Azyl',description:'Bezpieczne miejsce dla zwierząt i adopcje.',href:'#',image:''},
   {id:'zrodlo',number:'05',title:'Źródło',description:'Woda, filtry i projekty dla szkół.',href:'#',image:''},
   {id:'ai-campus',number:'06',title:'AI Campus',description:'Technologia, kompetencje, praca i młodzi twórcy.',href:'#',image:''},
-  {id:'beboki',number:'07',title:'Beboki',description:'Od tajemniczej kasetki i ukrytej bramy do pierwszej śląskiej osady. Gra strategiczna, kolekcjonerska i RPG rozwijana przez epoki aż do prawdziwych Katowic.',href:'/oaza/beboki2/',image:''}
+  {id:'beboki',number:'07',title:'Beboki',description:'Gra strategiczna, kolekcjonerska i RPG rozwijana od śląskich legend do prawdziwych Katowic.',href:'/oaza/beboki2/',image:'/oaza/assets/images/stadion/beboki-ar-festiwal.webp.b64'}
 ];
