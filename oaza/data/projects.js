@@ -5,5 +5,5 @@ export const projects = [
   {id:'azyl',number:'04',title:'Azyl',description:'Bezpieczne miejsce dla zwierząt i adopcje.',href:'#',image:''},
   {id:'zrodlo',number:'05',title:'Źródło',description:'Woda, filtry i projekty dla szkół.',href:'#',image:''},
   {id:'ai-campus',number:'06',title:'AI Campus',description:'Technologia, kompetencje, praca i młodzi twórcy.',href:'#',image:''},
-  {id:'beboki',number:'07',title:'Beboki',description:'Śląska kultura, historie i przyszła warstwa AR.',href:'#',image:''}
+  {id:'beboki',number:'07',title:'Beboki',description:'Kolekcjonerska gra o budowaniu własnej osady i imperium — od śląskich legend przez przemysł i historię Katowic aż po AR i cyfrowy świat.',href:'/oaza/beboki/',image:''}
 ];
