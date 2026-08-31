@@ -24,7 +24,9 @@ if (grid) {
   }));
   grid.innerHTML = resolved.map(project => `
     <a class="project-card" href="${project.href}" aria-label="${project.title}" data-tilt>
-      <div class="project-image ${project.image ? '' : 'project-placeholder'}" ${project.image ? `style="background-image:url('${project.image}')"` : ''}></div>
+      <div class="project-image ${project.image ? '' : 'project-placeholder'}">
+        ${project.image ? `<img src="${project.image}" alt="${project.title}" loading="lazy" decoding="async" width="1200" height="900" onerror="this.closest('.project-image').classList.add('project-image-error');this.remove()">` : ''}
+      </div>
       <div class="project-copy">
         <div class="project-number">${project.number} / PROJEKT</div>
         <h3>${project.title}</h3>
@@ -40,7 +42,7 @@ if (intro && !document.querySelector('#oaza-visuals')) {
   const visual = document.createElement('div');
   visual.id = 'oaza-visuals';
   visual.className = 'oaza-visual-strip reveal';
-  visual.innerHTML = `<figure><img src="${CDN.zones}" alt="Wizualizacja stref Festiwalu Śląskiego"><figcaption>FESTIWAL ŚLĄSKI · PIERWSZY SPOT</figcaption></figure><figure class="crop"><img src="${CDN.ar}" alt="Beboki AR podczas Festiwalu Śląskiego"><figcaption>BEBOKI AR · HISTORIA WCHODZI DO GRY</figcaption></figure>`;
+  visual.innerHTML = `<figure><img src="${CDN.zones}" alt="Wizualizacja stref Festiwalu Śląskiego" loading="lazy" decoding="async"><figcaption>FESTIWAL ŚLĄSKI · PIERWSZY SPOT</figcaption></figure><figure class="crop"><img src="${CDN.ar}" alt="Beboki AR podczas Festiwalu Śląskiego" loading="lazy" decoding="async"><figcaption>BEBOKI AR · HISTORIA WCHODZI DO GRY</figcaption></figure>`;
   intro.appendChild(visual);
 }
 
