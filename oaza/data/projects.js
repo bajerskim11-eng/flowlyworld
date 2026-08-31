@@ -7,5 +7,6 @@ export const projects = [
   {id:'azyl',number:'05',title:'Azyl',description:'Psi azyl jako część Farmy Oazy — bezpieczne miejsce, rehabilitacja, wolontariat i odpowiedzialne adopcje.',href:'/oaza/azyl/',image:'/oaza/azyl/assets/azyl-hero.jpg'},
   {id:'zrodlo',number:'06',title:'Źródło',description:'Program czystej, filtrowanej wody. Łączymy Hypeat, lokalne restauracje i finansowanie filtrów dla szkół, przedszkoli oraz placówek opiekuńczych.',href:'/oaza/zrodlo/',image:CDN+'zrodlo-flowly-okladka-original.png?v=1788172947'},
   {id:'ai-campus',number:'07',title:'AI Campus',description:'Technologia, kompetencje, praca i młodzi twórcy.',href:'#',image:CDN+'festiwal-saski-scena.png?v=1788111612'},
-  {id:'beboki',number:'08',title:'Beboki',description:'Gra strategiczna, kolekcjonerska i RPG rozwijana od śląskich legend do prawdziwych Katowic.',href:'/oaza/beboki2/',image:CDN+'beboki-ar-festiwal.png?v=1788111629'}
+  {id:'beboki',number:'08',title:'Beboki',description:'Gra strategiczna, kolekcjonerska i RPG rozwijana od śląskich legend do prawdziwych Katowic.',href:'/oaza/beboki2/',image:CDN+'beboki-ar-festiwal.png?v=1788111629'},
+  {id:'alchemia',number:'09',title:'Alchemia Życia',description:'Żywy atlas roślin, grzybów i molekuł. Zdjęcie z telefonu → identyfikacja → odkrywanie związków → eksperymenty alchemiczne w świecie gry.',href:'/oaza/alchemia/',image:CDN+'flowly-farma-cover.png?v=1788171994'}
 ];
