@@ -9,5 +9,6 @@ export const projects = [
   {id:'studio-hifi',number:'07',title:'Studio Hi-Fi × Jacks Team',description:'Żywe studio dźwięku i obrazu: odsłuchy, winyl, kino, projektory, testy oraz kanał YouTube prowadzony przez ludzi stojących za sprzętem.',href:'/oaza/studio-hifi/',image:CDN+'festiwal-saski-scena.png?v=1788111612'},
   {id:'ai-campus',number:'08',title:'AI Campus',description:'Technologia, kompetencje, praca i młodzi twórcy.',href:'#',image:CDN+'festiwal-saski-scena.png?v=1788111612'},
   {id:'beboki',number:'09',title:'Beboki',description:'Gra strategiczna, kolekcjonerska i RPG rozwijana od śląskich legend do prawdziwych Katowic.',href:'/oaza/beboki2/',image:CDN+'beboki-ar-festiwal.png?v=1788111629'},
-  {id:'alchemia',number:'10',title:'Alchemia Życia',description:'Żywy atlas roślin, grzybów i molekuł. Zdjęcie z telefonu → identyfikacja → odkrywanie związków → eksperymenty alchemiczne w świecie gry.',href:'/oaza/alchemia/',image:CDN+'flowly-farma-cover.png?v=1788171994'}
+  {id:'alchemia',number:'10',title:'Alchemia Życia',description:'Żywy atlas roślin, grzybów i molekuł. Zdjęcie z telefonu → identyfikacja → odkrywanie związków → eksperymenty alchemiczne w świecie gry.',href:'/oaza/alchemia/',image:CDN+'flowly-farma-cover.png?v=1788171994'},
+  {id:'human-ai-lab',number:'11',title:'Human × AI Lab',description:'Otwarte laboratorium OAZY — pomysły, prototypy i eksperymenty na styku człowieka, AI, technologii, sztuki i nauki.',href:'/oaza/lab/',image:CDN+'festiwal-saski-scena.png?v=1788111612'}
 ];
