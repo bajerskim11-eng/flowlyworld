@@ -16,86 +16,46 @@ if (hero) {
   document.head.appendChild(style);
 }
 
+/* CHILLERA — jeden wspólny moduł OAZY */
+const chilleraStyle = document.createElement('style');
+chilleraStyle.textContent = `.chillera-section{background:#090d0b;position:relative;overflow:hidden}.chillera-shell{width:min(1280px,calc(100% - 40px));margin:auto;padding:120px 0}.chillera-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:48px}.chillera-head h2{margin:12px 0 0;font-size:clamp(52px,8vw,96px);line-height:.82}.chillera-head h2 span{color:#79b9a8}.chillera-head-copy{max-width:500px;color:#9ba39c;line-height:1.7;font-size:14px}.chillera-status{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(121,185,168,.35);background:rgba(121,185,168,.06);border-radius:999px;padding:8px 11px;color:#a8d5c8;font-size:9px;font-weight:800;letter-spacing:.12em}.chillera-status i{width:7px;height:7px;border-radius:50%;background:#79b9a8;box-shadow:0 0 12px rgba(121,185,168,.8)}.chillera-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.chillera-module{grid-column:span 4;min-height:230px;padding:25px;border:1px solid rgba(255,255,255,.11);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));position:relative;overflow:hidden;transition:.25s}.chillera-module:hover{transform:translateY(-4px);border-color:rgba(121,185,168,.5)}.chillera-module.featured{grid-column:span 6;min-height:310px;background:radial-gradient(circle at 85% 15%,rgba(121,185,168,.16),transparent 38%),linear-gradient(145deg,#12201b,#0c110e)}.chillera-module.wide{grid-column:span 6}.chillera-index{font-size:9px;color:#79b9a8;letter-spacing:.18em;font-weight:800}.chillera-icon{position:absolute;right:24px;top:20px;font-size:30px;opacity:.8}.chillera-module h3{font-family:'Playfair Display',Georgia,serif;font-size:34px;line-height:.95;margin:38px 0 12px}.chillera-module.featured h3{font-size:clamp(42px,5vw,68px);max-width:560px}.chillera-module p{color:#9ba39c;font-size:12px;line-height:1.6;max-width:480px}.chillera-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.chillera-pill{display:inline-flex;padding:9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);font-size:9px;font-weight:800;letter-spacing:.07em;color:#d9ded9}.chillera-pill.primary{background:#79b9a8;color:#07100d;border-color:#79b9a8}.chillera-map{margin-top:12px;min-height:390px;border:1px solid rgba(255,255,255,.11);border-radius:24px;position:relative;overflow:hidden;background:radial-gradient(circle at 48% 48%,rgba(121,185,168,.12),transparent 28%),linear-gradient(135deg,#111a16,#080b0a)}.chillera-map:before{content:'';position:absolute;inset:0;opacity:.25;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:42px 42px;transform:perspective(500px) rotateX(55deg) scale(1.35);transform-origin:center}.chillera-road{position:absolute;height:1px;background:rgba(255,255,255,.16);transform-origin:left center}.r1{width:70%;left:8%;top:35%;transform:rotate(17deg)}.r2{width:62%;left:28%;top:65%;transform:rotate(-20deg)}.r3{width:48%;left:25%;top:48%;transform:rotate(78deg)}.chillera-pin{position:absolute;width:14px;height:14px;border-radius:50%;background:#79b9a8;box-shadow:0 0 0 8px rgba(121,185,168,.08),0 0 28px rgba(121,185,168,.5)}.p1{left:32%;top:39%}.p2{left:57%;top:57%}.p3{left:69%;top:29%}.chillera-map-label{position:absolute;left:25px;bottom:24px}.chillera-map-label small{display:block;color:#79b9a8;font-size:9px;font-weight:800;letter-spacing:.16em}.chillera-map-label strong{display:block;font-family:'Playfair Display',Georgia,serif;font-size:38px;margin-top:6px}.chillera-bottom{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.chillera-note{border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px;color:#a0a79f;font-size:11px;line-height:1.6}.chillera-note b{display:block;color:#eee6d5;margin-bottom:7px;font-size:11px}.chillera-note strong{color:#79b9a8}.chillera-disclaimer{margin-top:18px;color:#6f776f;font-size:10px;line-height:1.6;max-width:850px}@media(max-width:800px){.chillera-shell{padding:85px 0}.chillera-head{display:block}.chillera-head-copy{margin-top:25px}.chillera-module,.chillera-module.featured,.chillera-module.wide{grid-column:span 12;min-height:220px}.chillera-module.featured{min-height:310px}.chillera-bottom{grid-template-columns:1fr}.chillera-map{min-height:330px}.chillera-map-label strong{font-size:30px}}`;
+document.head.appendChild(chilleraStyle);
+
+const oazaIntro = document.querySelector('#oaza');
+if (oazaIntro && !document.querySelector('#chillera')) {
+  const chillera = document.createElement('section');
+  chillera.id = 'chillera';
+  chillera.className = 'chillera-section reveal';
+  chillera.innerHTML = `<div class="chillera-shell"><div class="chillera-head"><div><div class="section-label">02 / CHILLERA</div><h2>Wszystko<br><span>w jednym.</span></h2></div><div class="chillera-head-copy"><div class="chillera-status"><i></i> MODUŁ ROZWOJOWY OAZY</div><p>Jedna aplikacja zamiast dziesięciu miejsc. Chillera łączy pacjenta z informacją, aptekami, lekarzami i lokalnym wsparciem — bez mieszania roli platformy z rolą apteki czy lekarza.</p></div></div><div class="chillera-grid"><a class="chillera-module featured" href="/oaza/chillera/"><span class="chillera-index">01 / START</span><span class="chillera-icon">◉</span><h3>CHILLERA<br>HUB</h3><p>Główny ekran: wyszukiwarka, mapa, lokalne punkty i szybki dostęp do pozostałych modułów.</p><div class="chillera-actions"><span class="chillera-pill primary">OTWÓRZ HUB →</span><span class="chillera-pill">KATOWICE</span></div></a><a class="chillera-module" href="/oaza/chillera/apteki/"><span class="chillera-index">02 / APTEKI</span><span class="chillera-icon">＋</span><h3>Apteki</h3><p>Profile, godziny, dystans i dostępność — zawsze z informacją o źródle oraz czasie potwierdzenia.</p><div class="chillera-actions"><span class="chillera-pill">ZNAJDŹ APTEKĘ →</span></div></a><a class="chillera-module" href="/oaza/chillera/lekarze/"><span class="chillera-index">03 / LEKARZE</span><span class="chillera-icon">✚</span><h3>Lekarze</h3><p>Informacje o specjalistach i placówkach oraz ścieżki kontaktu. Bez udawania konsultacji medycznej.</p><div class="chillera-actions"><span class="chillera-pill">PRZEGLĄDAJ →</span></div></a><a class="chillera-module" href="/oaza/chillera/produkty/"><span class="chillera-index">04 / BAZA</span><span class="chillera-icon">✦</span><h3>Produkty</h3><p>Baza informacji o produktach i odmianach: parametry, producent, forma oraz miejsca, w których zgłoszono dostępność.</p><div class="chillera-actions"><span class="chillera-pill">OTWÓRZ BAZĘ →</span></div></a><a class="chillera-module wide" href="/oaza/chillera/recepty/"><span class="chillera-index">05 / PACJENT</span><span class="chillera-icon">⌁</span><h3>Moja recepta</h3><p>Prywatna strefa pacjenta: status, przygotowanie odbioru i upoważnienie konkretnej osoby do działania w jego imieniu, zgodnie z obowiązującymi zasadami.</p><div class="chillera-actions"><span class="chillera-pill">STREFA PACJENTA →</span></div></a><a class="chillera-module wide" href="/oaza/chillera/kurier/"><span class="chillera-index">06 / LOGISTYKA</span><span class="chillera-icon">↗</span><h3>Chillera Courier</h3><p>Zorganizowanie odbioru z apteki i dostarczenia do pacjenta jako osobny moduł operacyjny. Włączenie realnej usługi dopiero po potwierdzeniu wymogów prawnych i procedur z aptekami.</p><div class="chillera-actions"><span class="chillera-pill primary">ZORGANIZUJ ODBIÓR →</span></div></a></div><div class="chillera-map"><div class="chillera-road r1"></div><div class="chillera-road r2"></div><div class="chillera-road r3"></div><span class="chillera-pin p1"></span><span class="chillera-pin p2"></span><span class="chillera-pin p3"></span><div class="chillera-map-label"><small>07 / MAPA OAZY</small><strong>Chillera × Katowice</strong></div></div><div class="chillera-bottom"><div class="chillera-note"><b>JEDNA PLATFORMA</b>Chillera nie musi być osobną wyspą. Jest <strong>warstwą użytkową Oazy</strong>: mapą, katalogiem, strefą pacjenta i modułem usług.</div><div class="chillera-note"><b>MODUŁOWO</b>Najpierw UI i dane informacyjne. Potem konta, integracje, apteki, lekarze i dopiero na końcu realna logistyka. <strong>Każdy moduł można rozwijać niezależnie.</strong></div></div><p class="chillera-disclaimer">Informacje o lekach i dostępności nie zastępują porady lekarza ani farmaceuty. Platforma nie wydaje leków i nie zastępuje apteki. Moduł transportowy dla leków wymagających szczególnych zasad wymaga osobnej weryfikacji prawnej i operacyjnej.</p></div>`;
+  oazaIntro.after(chillera);
+}
+
 const grid = document.querySelector('#project-grid');
 if (grid) {
-  const resolved = projects.map(project => ({
-    ...project,
-    image: project.id === 'stadion' ? CDN.zones : project.id === 'hypeat' ? CDN.stage : project.id === 'beboki' ? CDN.ar : project.image
-  }));
-  grid.innerHTML = resolved.map(project => `
-    <a class="project-card" href="${project.href}" aria-label="${project.title}" data-tilt>
-      <div class="project-image ${project.image ? '' : 'project-placeholder'}">
-        ${project.image ? `<img src="${project.image}" alt="${project.title}" loading="lazy" decoding="async" width="1200" height="900" onerror="this.closest('.project-image').classList.add('project-image-error');this.remove()">` : ''}
-      </div>
-      <div class="project-copy">
-        <div class="project-number">${project.number} / PROJEKT</div>
-        <h3>${project.title}</h3>
-        <p>${project.description}</p>
-        <span class="project-link">${project.href === '#' ? 'ROZBUDUJEMY WKRÓTCE →' : 'OTWÓRZ PROJEKT →'}</span>
-      </div>
-    </a>
-  `).join('');
+  const resolved = projects.map(project => ({...project,image: project.id === 'stadion' ? CDN.zones : project.id === 'hypeat' ? CDN.stage : project.id === 'beboki' ? CDN.ar : project.image}));
+  grid.innerHTML = resolved.map(project => `<a class="project-card" href="${project.href}" aria-label="${project.title}" data-tilt><div class="project-image ${project.image ? '' : 'project-placeholder'}">${project.image ? `<img src="${project.image}" alt="${project.title}" loading="lazy" decoding="async" width="1200" height="900" onerror="this.closest('.project-image').classList.add('project-image-error');this.remove()">` : ''}</div><div class="project-copy"><div class="project-number">${project.number} / PROJEKT</div><h3>${project.title}</h3><p>${project.description}</p><span class="project-link">${project.href === '#' ? 'ROZBUDUJEMY WKRÓTCE →' : 'OTWÓRZ PROJEKT →'}</span></div></a>`).join('');
 }
 
 const intro = document.querySelector('#oaza');
 if (intro && !document.querySelector('#oaza-visuals')) {
-  const visual = document.createElement('div');
-  visual.id = 'oaza-visuals';
-  visual.className = 'oaza-visual-strip reveal';
-  visual.innerHTML = `<figure><img src="${CDN.zones}" alt="Wizualizacja stref Festiwalu Śląskiego" loading="lazy" decoding="async"><figcaption>FESTIWAL ŚLĄSKI · PIERWSZY SPOT</figcaption></figure><figure class="crop"><img src="${CDN.ar}" alt="Beboki AR podczas Festiwalu Śląskiego" loading="lazy" decoding="async"><figcaption>BEBOKI AR · HISTORIA WCHODZI DO GRY</figcaption></figure>`;
+  const visual = document.createElement('div'); visual.id='oaza-visuals'; visual.className='oaza-visual-strip reveal';
+  visual.innerHTML=`<figure><img src="${CDN.zones}" alt="Wizualizacja stref Festiwalu Śląskiego" loading="lazy" decoding="async"><figcaption>FESTIWAL ŚLĄSKI · PIERWSZY SPOT</figcaption></figure><figure class="crop"><img src="${CDN.ar}" alt="Beboki AR podczas Festiwalu Śląskiego" loading="lazy" decoding="async"><figcaption>BEBOKI AR · HISTORIA WCHODZI DO GRY</figcaption></figure>`;
   intro.appendChild(visual);
 }
 
 if (hero && window.matchMedia('(pointer:fine)').matches) {
-  hero.addEventListener('pointermove', event => {
-    const x = event.clientX / window.innerWidth - .5;
-    const y = event.clientY / window.innerHeight - .5;
-    hero.style.setProperty('--mx', `${x * 18}px`);
-    hero.style.setProperty('--my', `${y * 12}px`);
-  });
-  hero.addEventListener('pointerleave', () => {
-    hero.style.setProperty('--mx', '0px');
-    hero.style.setProperty('--my', '0px');
-  });
+  hero.addEventListener('pointermove', event => {const x=event.clientX/window.innerWidth-.5;const y=event.clientY/window.innerHeight-.5;hero.style.setProperty('--mx',`${x*18}px`);hero.style.setProperty('--my',`${y*12}px`)});
+  hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--mx','0px');hero.style.setProperty('--my','0px')});
 }
 
-const principleOutput = document.querySelector('#principle-output');
-const principleCopy = {
-  miejsce: 'Miejsce → ludzie → działanie. OAZA zaczyna się od pierwszego SPOTU.',
-  ludzie: 'Ludzie → pomysł → partnerstwo. Każdy może wnieść umiejętność, sprzęt, kontakt albo energię.',
-  razem: 'Razem → projekt → efekt. Małe wkłady wielu osób budują rzeczy, których jedna osoba nie zrobi sama.'
-};
-document.querySelectorAll('.principle').forEach(button => button.addEventListener('click', () => {
-  document.querySelectorAll('.principle').forEach(item => item.classList.remove('active'));
-  button.classList.add('active');
-  if (principleOutput) principleOutput.textContent = principleCopy[button.dataset.principle];
-}));
+const principleOutput=document.querySelector('#principle-output');
+const principleCopy={miejsce:'Miejsce → ludzie → działanie. OAZA zaczyna się od pierwszego SPOTU.',ludzie:'Ludzie → pomysł → partnerstwo. Każdy może wnieść umiejętność, sprzęt, kontakt albo energię.',razem:'Razem → projekt → efekt. Małe wkłady wielu osób budują rzeczy, których jedna osoba nie zrobi sama.'};
+document.querySelectorAll('.principle').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.principle').forEach(item=>item.classList.remove('active'));button.classList.add('active');if(principleOutput)principleOutput.textContent=principleCopy[button.dataset.principle]}));
 
-const revealItems = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('is-visible');
-  }), { threshold: .12 });
-  revealItems.forEach(item => observer.observe(item));
-} else revealItems.forEach(item => item.classList.add('is-visible'));
+const revealItems=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('is-visible')}),{threshold:.12});revealItems.forEach(item=>observer.observe(item))}else revealItems.forEach(item=>item.classList.add('is-visible'));
 
-if (window.matchMedia('(pointer:fine)').matches) {
-  document.querySelectorAll('[data-tilt]').forEach(card => {
-    card.addEventListener('pointermove', event => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--rx', `${((event.clientY - rect.top) / rect.height - .5) * -3}deg`);
-      card.style.setProperty('--ry', `${((event.clientX - rect.left) / rect.width - .5) * 3}deg`);
-    });
-    card.addEventListener('pointerleave', () => {
-      card.style.setProperty('--rx', '0deg');
-      card.style.setProperty('--ry', '0deg');
-    });
-  });
-}
+if(window.matchMedia('(pointer:fine)').matches){document.querySelectorAll('[data-tilt]').forEach(card=>{card.addEventListener('pointermove',event=>{const rect=card.getBoundingClientRect();card.style.setProperty('--rx',`${((event.clientY-rect.top)/rect.height-.5)*-3}deg`);card.style.setProperty('--ry',`${((event.clientX-rect.left)/rect.width-.5)*3}deg`)});card.addEventListener('pointerleave',()=>{card.style.setProperty('--rx','0deg');card.style.setProperty('--ry','0deg')})})}
 
-const progress = document.querySelector('#scroll-progress');
-window.addEventListener('scroll', () => {
-  if (!progress) return;
-  const max = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
-}, { passive: true });
+const progress=document.querySelector('#scroll-progress');
+window.addEventListener('scroll',()=>{if(!progress)return;const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=`${max>0?(window.scrollY/max)*100:0}%`},{passive:true});
