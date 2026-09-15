@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f2e8" />
+  <title>SOS 420 — znajdź swoją drogę</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="nav wrap">
+    <a class="brand" href="#top"><span class="brand-dot">✦</span><span>SOS <b>420</b></span></a>
+    <nav><a href="#lekarze">Lekarze</a><a href="#leki">Leki</a><a href="#apteki">Apteki</a><a href="#przyjaciele">Przyjaciele</a></nav>
+    <button class="nav-cta" onclick="startSOS()">Znajdź pomoc</button>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow">🌿 Katowice · Śląsk</div>
+        <h1>Spokojniej.<br><em>Prościej.</em> Razem.</h1>
+        <p class="lead">Jedno miejsce, żeby znaleźć lekarza, sprawdzić lek i zobaczyć apteki w okolicy.</p>
+        <div class="hero-actions">
+          <button class="primary" onclick="startSOS()"><span>●</span> SOS 420</button>
+          <a class="secondary" href="#how">Jak to działa?</a>
+        </div>
+        <p class="micro">Informacyjna platforma. Decyzję o leczeniu i wystawieniu recepty podejmuje uprawniony lekarz.</p>
+      </div>
+      <div class="hero-card">
+        <div class="sun">☀️</div>
+        <span class="card-label">DZISIAJ W KATOWICACH</span>
+        <div class="quick-result"><div><b>Najbliższa pomoc</b><small>znajdź lekarza według dostępności</small></div><span>→</span></div>
+        <div class="quick-result"><div><b>Sprawdź lek</b><small>informacje i apteki w pobliżu</small></div><span>→</span></div>
+        <div class="location"><span>⌖</span> Katowice <button onclick="setLocation()">zmień</button></div>
+      </div>
+    </section>
+
+    <section class="stats wrap">
+      <div><strong>01</strong><span>Lekarz</span><small>znajdź konsultację</small></div>
+      <div><strong>02</strong><span>Lek</span><small>poznaj preparat</small></div>
+      <div><strong>03</strong><span>Apteka</span><small>sprawdź dostępność</small></div>
+      <div><strong>04</strong><span>Wsparcie</span><small>zostań w kontakcie</small></div>
+    </section>
+
+    <section id="how" class="section wrap">
+      <div class="section-head"><span class="eyebrow">JEDEN PRZYCISK</span><h2>Droga bez zbędnego szukania.</h2><p>SOS 420 łączy pacjenta z informacjami i usługami, które już istnieją — zamiast tworzyć kolejny skomplikowany system.</p></div>
+      <div class="steps">
+        <article><span>01</span><h3>Znajdź lekarza</h3><p>Filtruj po lokalizacji, specjalizacji, formie wizyty i dostępności.</p></article>
+        <article><span>02</span><h3>Sprawdź lek</h3><p>Przejrzysta baza informacji o preparatach, substancjach i postaciach leków.</p></article>
+        <article><span>03</span><h3>Znajdź aptekę</h3><p>Zobacz punkty w okolicy i informacje o dostępności, gdy dane źródło je udostępnia.</p></article>
+      </div>
+    </section>
+
+    <section id="lekarze" class="feature wrap">
+      <div class="feature-art doctor-art"><span>♡</span></div>
+      <div class="feature-copy"><span class="eyebrow">LEKARZE</span><h2>Dobry lekarz zaczyna się od rozmowy.</h2><p>Profile zweryfikowanych specjalistów, informacje o zakresie praktyki i możliwość przejścia do oficjalnego systemu rezerwacji.</p><button class="outline" onclick="join('lekarz')">Jestem lekarzem →</button></div>
+    </section>
+
+    <section id="leki" class="section soft wrap">
+      <div class="section-head"><span class="eyebrow">BAZA LEKÓW</span><h2>Wiedza bez zadęcia.</h2><p>Proste opisy. Zero obietnic cudów. Źródła i informacje farmaceutyczne zamiast „najlepszej odmiany dla Ciebie”.</p></div>
+      <div class="product-grid">
+        <article class="product"><div class="plant">🌱</div><div><small>PREPARAT · PRZYKŁAD</small><h3>THC / CBD</h3><p>Postać · zawartość · informacje</p></div><button>→</button></article>
+        <article class="product"><div class="plant">🍃</div><div><small>WIEDZA</small><h3>Jak czytać skład?</h3><p>THC, CBD, postać i dawkowanie</p></div><button>→</button></article>
+      </div>
+    </section>
+
+    <section id="apteki" class="map-section wrap">
+      <div><span class="eyebrow">APTEKI</span><h2>Najbliżej Ciebie.</h2><p>Docelowo SOS 420 połączy informacje o dostępności z istniejącymi źródłami i oficjalnymi integracjami.</p><button class="primary small" onclick="startSOS()">Sprawdź okolice</button></div>
+      <div class="map-card"><div class="map-bg"><span class="pin p1">●</span><span class="pin p2">●</span><span class="pin p3">●</span><div class="map-center">⌖<b>Katowice</b></div></div></div>
+    </section>
+
+    <section id="przyjaciele" class="friends wrap">
+      <div class="friends-copy"><span class="eyebrow">UŚMIECHNIĘCI PRZYJACIELE</span><h2>Zdrowie ma wiele twarzy. 😁</h2><p>Osobna sieć gabinetów i specjalistów. W tym lekarzy dentystów — bez mieszania ich kompetencji z innymi specjalizacjami.</p><button class="outline" onclick="join('gabinet')">Dołącz gabinet →</button></div>
+      <div class="smile">😁</div>
+    </section>
+
+    <section class="join wrap"><div><span class="eyebrow">DLA PROFESJONALISTÓW</span><h2>Chcesz być na SOS 420?</h2><p>Dodaj swój profil i pomóż pacjentom łatwiej znaleźć legalną ścieżkę opieki.</p></div><button class="primary" onclick="join('partner')">Zostań partnerem →</button></section>
+  </main>
+
+  <footer class="footer wrap"><div class="brand"><span class="brand-dot">✦</span><span>SOS <b>420</b></span></div><span>Projekt pilotażowy · Katowice</span><span>© 2026</span></footer>
+
+  <div id="modal" class="modal" aria-hidden="true"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><span class="eyebrow">SOS 420</span><h2 id="modalTitle">Znajdź swoją drogę.</h2><p id="modalText">Wybierz, czego teraz potrzebujesz.</p><div class="modal-options"><button onclick="showDemo('lekarz')">👨‍⚕️ Szukam lekarza</button><button onclick="showDemo('lek')">💊 Szukam leku</button><button onclick="showDemo('apteka')">🏪 Szukam apteki</button></div><small>Demo MVP — wyniki będą podłączane do zweryfikowanych źródeł i partnerów.</small></div></div>
+  <script src="./app.js"></script>
+</body>
+</html>
